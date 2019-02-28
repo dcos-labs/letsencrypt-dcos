@@ -20,7 +20,7 @@
       }
     ],
     "docker": {
-      "image": "mesosphere/letsencrypt-dcos:v1.0.4",
+      "image": "dcoslabs/letsencrypt-dcos:v1.0.5",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -34,10 +34,10 @@
   "env": {
     "MARATHON_LB_ID": "marathon-lb",
     "MARATHON_URL": "http://marathon.mesos:8080",
-    "LETSENCRYPT_EMAIL": "brenden@mesosphere.com"
+    "LETSENCRYPT_EMAIL": "matt@example.com"
   },
   "labels": {
-    "HAPROXY_0_VHOST": "ssl-test-1.mesosphere.com,ssl-test-2.mesosphere.com",
+    "HAPROXY_0_VHOST": "ssl-test-1.example.com,ssl-test-2.example.com",
     "HAPROXY_GROUP": "external",
     "HAPROXY_0_PATH": "/.well-known/acme-challenge"
   },

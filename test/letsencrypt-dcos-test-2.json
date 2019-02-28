@@ -6,7 +6,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "mesosphere/letsencrypt-dcos-test",
+      "image": "dcoslabs/letsencrypt-dcos-test",
       "network": "BRIDGE",
       "portMappings": [{
               "containerPort": 8080,
@@ -26,6 +26,6 @@
   }],
   "labels":{
     "HAPROXY_GROUP":"external",
-    "HAPROXY_0_VHOST":"ssl-test-2.mesosphere.com"
+    "HAPROXY_0_VHOST":"ssl-test-2.example.com"
   }
 }
