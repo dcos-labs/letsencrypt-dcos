@@ -4,12 +4,15 @@ This is a sample [Marathon](https://github.com/mesosphere/marathon) app for encr
 
 ## Getting started
 
+Ensure you have **at least 2 or more** public agents in your DC/OS cluster, and that marathon-lb is scaled out to more than 1 public agent. Deploying this app requires this since it entails restarting marathon-lb.
+
 Clone (or manually copy) this repo, and modify the [letsencrypt-dcos.json](letsencrypt-dcos.json) file to include:
  - The list of hostnames (must be FQDNs) for which you want to generate SSL certs (in `HAPROXY_0_VHOST`)
  - An admin email address for your certificate (in `LETSENCRYPT_EMAIL`)
  - The Marathon API endpoint (in `MARATHON_URL`)
  - The Marathon-lb app ID (in `MARATHON_LB_ID`)
- - Ensure you have **at least 2 or more** public agents in your DC/OS cluster, and that marathon-lb is scaled out to more than 1 public agent. Deploying this app requires this since it entails restarting marathon-lb.
+
+This app also now supports specifying the Lets Encrypt server, for situations where users may be running their own Boulder server on an internal network, or for using the Lets Encrypt staging servers for testing. By default it is set to the Lets Encrypt staging server, so for production use change the LETSENCRYPT_SERVER_URL variable - if you are using the Lets Encrypt servers the default should be https://acme-v01.api.letsencrypt.org/directory
 
 Now launch the `letsencrypt-dcos` Marathon app:
 

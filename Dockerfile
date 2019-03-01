@@ -1,17 +1,9 @@
-FROM debian:jessie
+FROM debian:stretch
 
 WORKDIR /
 ENV DEBIAN_FRONTEND=noninteractive
-ENV CERTBOT_VERSION=0.31.0
 RUN apt-get update \
-  && apt-get install -y unzip curl python-pip \
-  && pip install --upgrade pip \
-  && pip install virtualenv --upgrade \
-  && curl -Ls -o /certbot.zip https://github.com/certbot/certbot/archive/v${CERTBOT_VERSION}.zip \
-  && unzip certbot.zip \
-  && mv certbot-${CERTBOT_VERSION} certbot \
-  && cd certbot \
-  && ./certbot-auto --os-packages-only --noninteractive \
+  && apt-get install -y certbot curl python python-requests \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 EXPOSE 80
