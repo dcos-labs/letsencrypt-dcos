@@ -20,7 +20,8 @@
       }
     ],
     "docker": {
-      "image": "dcoslabs/letsencrypt-dcos:v1.0.5",
+      "forcePullImage": true,
+      "image": "dcoslabs/letsencrypt-dcos:v1.0.7",
       "network": "BRIDGE",
       "portMappings": [
         {
@@ -34,7 +35,8 @@
   "env": {
     "MARATHON_LB_ID": "marathon-lb",
     "MARATHON_URL": "http://marathon.mesos:8080",
-    "LETSENCRYPT_EMAIL": "matt@example.com"
+    "LETSENCRYPT_EMAIL": "matt@example.com",
+    "LETSENCRYPT_SERVER_URL": "https://acme-staging-v02.api.letsencrypt.org/directory"
   },
   "labels": {
     "HAPROXY_0_VHOST": "ssl-test-1.example.com,ssl-test-2.example.com",
